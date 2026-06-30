@@ -1,0 +1,6 @@
+{
+  "name": "Productivity Checker 1",
+  "description": "Dashboard monitoring productivity for Checker 1 with daily shifts and monthly leadboards",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -35,7 +35,9 @@ export function formatIndonesianDate(date: Date): string {
 }
 
 export async function fetchDashboardData(): Promise<DashboardData> {
-  const response = await fetch(SHEET_CSV_URL);
+  const timestamp = new Date().getTime();
+  const cacheBustedUrl = `${SHEET_CSV_URL}&t=${timestamp}`;
+  const response = await fetch(cacheBustedUrl);
   if (!response.ok) {
     throw new Error(`Failed to fetch spreadsheet data: ${response.statusText}`);
   }

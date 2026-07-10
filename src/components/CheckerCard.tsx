@@ -90,7 +90,7 @@ export const CheckerCard: React.FC<CheckerCardProps> = ({
                       {record.so}
                     </td>
 
-                    {/* SKU badge */}
+                    {/* SKU */}
                     <td className="py-2 text-center align-middle">
                       <span
                         className={`inline-block px-2 py-0.5 text-[11px] font-black rounded-md w-[50px] text-center ${badgeColor}`}

@@ -4,9 +4,26 @@ import { DashboardData } from "./types";
 import { fetchDashboardData, formatTimeWithDots, formatIndonesianDate } from "./dataService";
 import { CheckerCard } from "./components/CheckerCard";
 
+// Helper function to calculate Monthly Baseline Target
+// Baseline is 300 SKU per day, with 1 day off in a week (7 days)
+function getMonthlyBaseline(date: Date) {
+  const currentDay = date.getDate();
+  const offDays = Math.floor(currentDay / 7);
+  const workingDays = currentDay - offDays;
+  const targetSku = workingDays * 300;
+  return {
+    currentDay,
+    workingDays,
+    targetSku,
+  };
+}
+
 export default function App() {
   // Live ticking clock state
   const [currentTime, setCurrentTime] = useState<Date>(new Date());
+  
+  // Calculate dynamic monthly baseline based on current date
+  const { currentDay, workingDays, targetSku } = getMonthlyBaseline(currentTime);
   
   // Dashboard data states
   const [data, setData] = useState<DashboardData | null>(null);
@@ -151,8 +168,8 @@ export default function App() {
               <CheckerCard
                 title="Monthly Checker 1"
                 records={data.monthly}
-                targetText={`Average SKU: ${data.averageSku}`}
-                threshold={data.averageSku}
+                targetText={`Target: ≥ ${targetSku.toLocaleString("id-ID")} SKU (${currentDay} Hari)`}
+                threshold={targetSku}
                 isMonthly={true}
               />
             </div>
@@ -160,7 +177,7 @@ export default function App() {
         </main>
       </div>
 
-      {/* Footer Branding (Subtle, professional and clean) */}
+      {/* Footer Branding */}
       <footer className="mt-8 pt-4 border-t border-slate-200/40 text-center">
         <p className="text-[10px] font-bold text-slate-400 tracking-widest uppercase">
           Productivity Monitoring System • Checker 1

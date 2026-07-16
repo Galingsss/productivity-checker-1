@@ -32,19 +32,19 @@ export const CheckerCard: React.FC<CheckerCardProps> = ({
 
       {/* Card Content - Table */}
       <div className="px-5 pb-5">
-        <table className="w-full text-left border-collapse">
+        <table className="w-full text-left border-collapse table-fixed">
           <thead>
             <tr className="border-b-2 border-slate-300">
-              <th className="py-3 text-sm md:text-base font-black text-black tracking-wider text-left w-[58%]">
+              <th className="py-3 text-sm md:text-base font-black text-black tracking-wider text-left w-[36%]">
                 NAMA
               </th>
-              <th className="py-3 text-sm md:text-base font-black text-black tracking-wider text-right w-[12%]">
+              <th className="py-3 text-sm md:text-base font-black text-black tracking-wider text-right w-[22%] pr-6">
                 SO
               </th>
-              <th className="py-3 text-sm md:text-base font-black text-black tracking-wider text-center w-[15%]">
+              <th className="py-3 text-sm md:text-base font-black text-black tracking-wider text-center w-[24%]">
                 SKU
               </th>
-              <th className="py-3 text-sm md:text-base font-black text-black tracking-wider text-right w-[15%]">
+              <th className="py-3 text-sm md:text-base font-black text-black tracking-wider text-right w-[18%]">
                 QTY
               </th>
             </tr>
@@ -70,10 +70,10 @@ export const CheckerCard: React.FC<CheckerCardProps> = ({
                     className="hover:bg-slate-50 transition-colors duration-150"
                   >
                     {/* Name */}
-                    <td className="py-3.5 pr-2 w-[58%] align-middle">
+                    <td className="py-3.5 pr-2 w-[36%] align-middle overflow-hidden">
                       <div className="relative group">
                         <p
-                          className="text-sm md:text-base font-black text-black truncate max-w-[130px] sm:max-w-[160px] md:max-w-[120px] lg:max-w-[140px] xl:max-w-[180px]"
+                          className="text-sm md:text-base font-black text-black truncate w-full"
                           title={record.nama}
                         >
                           {record.nama}
@@ -86,14 +86,14 @@ export const CheckerCard: React.FC<CheckerCardProps> = ({
                     </td>
 
                     {/* SO */}
-                    <td className="py-3.5 text-right text-sm md:text-base font-black text-black align-middle">
+                    <td className="py-3.5 text-right text-sm md:text-base font-black text-black align-middle pr-6">
                       {record.so}
                     </td>
 
                     {/* SKU */}
                     <td className="py-3 text-center align-middle">
                       <span
-                        className={`inline-block px-2.5 py-1 text-xs md:text-sm font-black rounded-lg w-[55px] md:w-[60px] text-center ${badgeColor}`}
+                        className={`inline-block px-2.5 py-1 text-base md:text-lg lg:text-xl font-black rounded-lg w-[70px] md:w-[85px] text-center ${badgeColor}`}
                       >
                         {record.sku}
                       </span>

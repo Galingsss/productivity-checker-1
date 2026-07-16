@@ -76,38 +76,38 @@ export default function App() {
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans p-4 md:p-6 lg:p-8 flex flex-col justify-between">
       <div className="w-full mx-auto flex-1 flex flex-col">
         {/* Header Section */}
-        <header id="dashboard-header" className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 pb-5 border-b border-slate-200/60">
+        <header id="dashboard-header" className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 pb-5 border-b border-slate-300">
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="text-2xl md:text-3xl font-extrabold tracking-tight text-blue-900 uppercase">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-black tracking-tight text-black uppercase">
                 Productivity Checker 1
               </h1>
               {isRefreshing && (
-                <Loader2 className="h-5 w-5 text-blue-600 animate-spin" />
+                <Loader2 className="h-6 w-6 text-black animate-spin" />
               )}
             </div>
             
             <div className="flex items-center gap-3 mt-1.5">
-              <span className="text-xs md:text-sm font-bold text-blue-600/80 tracking-wide uppercase">
+              <span className="text-xs md:text-sm font-black text-black tracking-wide uppercase">
                 Update: {data ? data.lastUpdate : "--.--.--"}
               </span>
               <button
                 onClick={() => loadData(true)}
                 disabled={isRefreshing || isLoading}
-                className="p-1 rounded-md hover:bg-slate-200/80 active:scale-95 transition-all text-slate-500 hover:text-blue-600 disabled:opacity-50"
+                className="p-1 rounded-md hover:bg-slate-200/80 active:scale-95 transition-all text-black disabled:opacity-50"
                 title="Refresh Data"
               >
-                <RefreshCw className={`h-3.5 w-3.5 ${isRefreshing ? "animate-spin text-blue-600" : ""}`} />
+                <RefreshCw className={`h-4 w-4 ${isRefreshing ? "animate-spin text-black" : ""}`} />
               </button>
             </div>
           </div>
 
           {/* Right Header: Clock and Date */}
           <div className="mt-4 md:mt-0 flex flex-col items-start md:items-end">
-            <span className="text-4xl md:text-5xl font-black tracking-widest text-blue-600 font-mono select-none">
+            <span className="text-4xl md:text-5xl lg:text-6xl font-black tracking-widest text-black font-mono select-none">
               {formatTimeWithDots(currentTime)}
             </span>
-            <span className="text-xs md:text-sm font-black text-slate-400 tracking-wider uppercase mt-1">
+            <span className="text-xs md:text-sm lg:text-base font-black text-black tracking-wider uppercase mt-1">
               {formatIndonesianDate(currentTime)}
             </span>
           </div>
@@ -117,23 +117,23 @@ export default function App() {
         <main className="w-full">
           {isLoading ? (
             <div className="flex flex-col items-center justify-center py-24 gap-4">
-              <Loader2 className="h-10 w-10 text-blue-600 animate-spin" />
-              <p className="text-sm font-extrabold text-slate-500 animate-pulse uppercase tracking-wider">
+              <Loader2 className="h-12 w-12 text-black animate-spin" />
+              <p className="text-sm md:text-base font-black text-black animate-pulse uppercase tracking-wider">
                 Menghubungkan ke Google Sheets...
               </p>
             </div>
           ) : error ? (
-            <div className="bg-red-50 border border-red-100 rounded-xl p-8 max-w-md mx-auto text-center flex flex-col items-center shadow-xs">
-              <AlertTriangle className="h-12 w-12 text-red-500 mb-3" />
-              <h3 className="text-sm font-black text-red-800 uppercase tracking-wide mb-1.5">
+            <div className="bg-red-50 border-2 border-red-500 rounded-xl p-8 max-w-md mx-auto text-center flex flex-col items-center shadow-md">
+              <AlertTriangle className="h-14 w-14 text-red-600 mb-3" />
+              <h3 className="text-base font-black text-red-950 uppercase tracking-wide mb-1.5">
                 Koneksi Data Gagal
               </h3>
-              <p className="text-xs font-medium text-red-600/90 leading-relaxed mb-6">
+              <p className="text-sm font-black text-red-800 leading-relaxed mb-6">
                 {error}
               </p>
               <button
                 onClick={() => loadData()}
-                className="px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white text-xs font-black rounded-lg transition-colors shadow-sm uppercase tracking-wider"
+                className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white text-xs md:text-sm font-black rounded-lg transition-colors shadow-md uppercase tracking-wider"
               >
                 Coba Lagi
               </button>
@@ -178,8 +178,8 @@ export default function App() {
       </div>
 
       {/* Footer Branding */}
-      <footer className="mt-8 pt-4 border-t border-slate-200/40 text-center">
-        <p className="text-[10px] font-bold text-slate-400 tracking-widest uppercase">
+      <footer className="mt-8 pt-4 border-t border-slate-300 text-center">
+        <p className="text-[11px] font-black text-black tracking-widest uppercase">
           Productivity Monitoring System • Checker 1
         </p>
       </footer>
